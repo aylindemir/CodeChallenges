@@ -61,6 +61,7 @@ public class BananaBudgetTest {
 		String actualTotal = response.body().jsonPath().get("totalCost");
 		String expectedTotal = getTotal(startDate, numberOfDays);
 		
+        assertEquals(response.getStatusCode(), HttpStatus.SC_OK, "invalid statusCode");
 		assertEquals(actualTotal, expectedTotal, "invalid totalCost");
 	}
 	
